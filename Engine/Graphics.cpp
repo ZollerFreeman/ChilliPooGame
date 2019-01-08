@@ -336,6 +336,21 @@ void Graphics::DrawRect( int x0,int y0,int x1,int y1,Color c )
 	}
 }
 
+void Graphics::DrawCircle(int x0, int y0, int r, Color c) {
+
+	static const int R = pow(r,2);
+	static const int R_Inside = pow(r - 30, 2);
+
+	for (int x = x0 - r; x <= x0 + r; ++x) {
+		for (int y = y0 - r; y <= y0 + r; ++y) {
+			if( pow(x0 - x, 2) + pow(y0 - y, 2)  <= R  && pow(x0 - x, 2) + pow(y0 - y, 2) >= R_Inside)
+				PutPixel(x, y, c);
+		}
+	}
+
+
+}
+
 //////////////////////////////////////////////////
 //           Graphics Exception
 Graphics::Exception::Exception( HRESULT hr,const std::wstring& note,const wchar_t* file,unsigned int line )
