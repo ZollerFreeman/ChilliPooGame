@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Graphics.h"
-#include "Keyboard.h"
+#include "Mouse.h"
 #include "Vec.h"
 
 class Dude
@@ -9,7 +9,7 @@ class Dude
 public:
 	void ClampToScreen();
 	void Draw( Graphics& gfx ) const;
-	void Update( const Keyboard& kbd, float dt );
+	void Update( const Mouse& mouse, float dt );
 	Vec GetPos() const;
 	float GetWidth() const;
 	float GetHeight() const;
